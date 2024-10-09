@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面标题</title>
+    <style>
+        /* 确保 body 和 html 没有默认的间距 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #header {
+            width: 100%;
+            text-align: center;
+            margin: 0; /* 菜单栏和头图栏之间的间距设置为0 */
+            position: relative;
+            overflow: hidden;
+        }
+
+        #header img {
+            width: 100%;
+            height: auto;
+        }
+
+        #menu {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 0; /* 确保菜单栏的 padding 设置为0 */
+            margin: 0;  /* 确保菜单栏的 margin 设置为0 */
+        }
+
+        #menu img {
+            height: 80px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        #team-intro,
+        #main-person,
+        #team-members,
+        #excellent-members,
+        #company-intro {
+            width: 100%;
+            text-align: center;
+            margin: 0; /* 确保模块间的间距设置为0 */
+            position: relative; /* 使子元素可以相对于这个容器进行定位 */
+        }
+
+        #team-intro img,
+        #main-person img,
+        #excellent-members img,
+        #company-intro img {
+            width: 100%;
+            height: auto;
+        }
+
+        #team-members {
+            position: relative; /* 确保成员图片在同一定位上下文 */
+            width: 100%;
+            height: auto; /* 根据内容调整高度 */
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 0; /* 确保图片之间的间距为0 */
+        }
+
+        #team-members img {
+            width: 33.33%; /* 每个图片占容器宽度的33.33% */
+            height: auto; /* 根据内容调整高度 */
+        }
+    </style>
+    <script>
+        var originalImages = {
+            "img2": "file:///F:/桌面/网页试做/图片/菜单栏/2.gif",
+            "img4": "file:///F:/桌面/网页试做/图片/菜单栏/4.gif",
+            "img6": "file:///F:/桌面/网页试做/图片/菜单栏/6.gif",
+            "img8": "file:///F:/桌面/网页试做/图片/菜单栏/8.gif",
+            "img10": "file:///F:/桌面/网页试做/图片/菜单栏/10.gif",
+            "team-member-01": "file:///F:/桌面/网页试做/图片/Team/团队_01.gif",
+            "team-member-02": "file:///F:/桌面/网页试做/图片/Team/团队_02.gif",
+            "team-member-03": "file:///F:/桌面/网页试做/图片/Team/团队_03.gif"
+        };
+
+        var hoverImages = {
+            "img2": "file:///F:/桌面/网页试做/图片/菜单栏/images/2.gif",
+            "img4": "file:///F:/桌面/网页试做/图片/菜单栏/images/4.gif",
+            "img6": "file:///F:/桌面/网页试做/图片/菜单栏/images/6.gif",
+            "img8": "file:///F:/桌面/网页试做/图片/菜单栏/images/8.gif",
+            "img10": "file:///F:/桌面/网页试做/图片/菜单栏/images/10.gif",
+            "team-member-01": "file:///F:/桌面/网页试做/图片/Team/1/团队_01.gif",
+            "team-member-02": "file:///F:/桌面/网页试做/图片/Team/1/团队_02.gif",
+            "team-member-03": "file:///F:/桌面/网页试做/图片/Team/1/团队_03.gif"
+        };
+
+        function resetImages() {
+            for (var imgId in originalImages) {
+                if (document.getElementById(imgId)) {
+                    document.getElementById(imgId).src = originalImages[imgId];
+                }
+            }
+        }
+
+        function handleMouseOver(imgId) {
+            resetImages();
+            document.getElementById(imgId).src = hoverImages[imgId];
+        }
+
+        function handleMouseOut(imgId) {
+            document.getElementById(imgId).src = originalImages[imgId];
+        }
+
+        function handleClick(imgId) {
+            var fileMap = {
+                "img2": "file:///F:/桌面/网页试做/Home.html",
+                "img4": "file:///F:/桌面/网页试做/Work.html",
+                "img6": "file:///F:/桌面/网页试做/Team.html",
+                "img8": "file:///F:/桌面/网页试做/About%20US.html",
+                "img10": "file:///F:/桌面/网页试做/Contact%20Us.html"
+            };
+            var fileName = fileMap[imgId];
+            setTimeout(function() {
+                window.location.href = fileName;
+            }, 500);
+        }
+
+        function handleHeaderClick() {
+            const headerImg = document.getElementById('headerImg');
+            headerImg.src = 'file:///F:/桌面/网页试做/图片/Team/Team_02-1.gif';
+        }
+    </script>
+</head>
+<body>
+    <!-- 菜单栏 -->
+    <section id="menu">
+        <img id="img1" src="file:///F:/桌面/网页试做/图片/菜单栏/1.gif" alt="菜单1">
+        <img id="img2" src="file:///F:/桌面/网页试做/图片/菜单栏/2.gif" alt="菜单2"
+             onmouseover="handleMouseOver('img2')"
+             onmouseout="handleMouseOut('img2')"
+             onclick="handleClick('img2')">
+        <img id="img3" src="file:///F:/桌面/网页试做/图片/菜单栏/3.gif" alt="菜单3">
+        <img id="img4" src="file:///F:/桌面/网页试做/图片/菜单栏/4.gif" alt="菜单4"
+             onmouseover="handleMouseOver('img4')"
+             onmouseout="handleMouseOut('img4')"
+             onclick="handleClick('img4')">
+        <img id="img5" src="file:///F:/桌面/网页试做/图片/菜单栏/5.gif" alt="菜单5">
+        <img id="img6" src="file:///F:/桌面/网页试做/图片/菜单栏/6.gif" alt="菜单6"
+             onmouseover="handleMouseOver('img6')"
+             onmouseout="handleMouseOut('img6')"
+             onclick="handleClick('img6')">
+        <img id="img7" src="file:///F:/桌面/网页试做/图片/菜单栏/7.gif" alt="菜单7">
+        <img id="img8" src="file:///F:/桌面/网页试做/图片/菜单栏/8.gif" alt="菜单8"
+             onmouseover="handleMouseOver('img8')"
+             onmouseout="handleMouseOut('img8')"
+             onclick="handleClick('img8')">
+        <img id="img9" src="file:///F:/桌面/网页试做/图片/菜单栏/9.gif" alt="菜单9">
+        <img id="img10" src="file:///F:/桌面/网页试做/图片/菜单栏/10.gif" alt="菜单10"
+             onmouseover="handleMouseOver('img10')"
+             onmouseout="handleMouseOut('img10')"
+             onclick="handleClick('img10')">
+        <img id="img11" src="file:///F:/桌面/网页试做/图片/菜单栏/11.gif" alt="菜单11">
+        <img id="img12" src="file:///F:/桌面/网页试做/图片/菜单栏/12.gif" alt="菜单12">
+    </section>
+
+    <!-- 头图栏 -->
+    <section id="header">
+        <img id="headerImg" 
+             src="file:///F:/桌面/网页试做/图片/Team/Team_02.gif" 
+             alt="头图" 
+             onclick="handleHeaderClick()">
+    </section>
+
+    <!-- 团队介绍栏 -->
+    <section id="team-intro">
+        <img src="file:///F:/桌面/网页试做/图片/Team/Team_03.gif" alt="团队介绍">
+    </section>
+
+    <!-- 主要人物介绍栏 -->
+    <section id="main-person">
+        <img src="file:///F:/桌面/网页试做/图片/Team/Team_04.gif" alt="主要人物介绍">
+    </section>
+
+    <!-- 团队成员介绍栏 -->
+    <section id="team-members">
+        <img id="team-member-01" 
+             src="file:///F:/桌面/网页试做/图片/Team/团队_01.gif" 
+             alt="团队成员1" 
+             onmouseover="handleMouseOver('team-member-01')"
+             onmouseout="handleMouseOut('team-member-01')">
+        <img id="team-member-02" 
+             src="file:///F:/桌面/网页试做/图片/Team/团队_02.gif" 
+             alt="团队成员2" 
+             onmouseover="handleMouseOver('team-member-02')"
+             onmouseout="handleMouseOut('team-member-02')">
+        <img id="team-member-03" 
+             src="file:///F:/桌面/网页试做/图片/Team/团队_03.gif" 
+             alt="团队成员3" 
+             onmouseover="handleMouseOver('team-member-03')"
+             onmouseout="handleMouseOut('team-member-03')">
+    </section>
+
+    <!-- 优秀成员栏 -->
+    <section id="excellent-members">
+        <img src="file:///F:/桌面/网页试做/图片/Team/Team_06.gif" alt="优秀成员">
+    </section>
+
+    <!-- 公司介绍栏 -->
+    <section id="company-intro">
+        <img src="file:///F:/桌面/网页试做/图片/Team/Team_07.gif" alt="公司介绍">
+    </section>
+</body>
+</html>

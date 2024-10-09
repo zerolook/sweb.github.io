@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu with Sections</title>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 菜单栏样式 */
+        #menu {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        #menu img {
+            height: 80px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        /* 各个部分的样式 */
+        .section {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #details-display-section {
+            position: relative;
+        }
+
+        #slider-container {
+            position: absolute;
+            width: 1014px; /* 761px + 30% */
+            height: 555px; /* 417px + 30% */
+            right: 407px;
+            bottom: 465px;
+            overflow: hidden;
+            background: lightgray;
+        }
+
+        #slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 确保图片填满其容器 */
+        img {
+            width: 100%;
+            height: auto;
+            display: block; /* 去除图片下方可能的间距 */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 项目细节介绍样式 */
+        .project-details {
+            /* 根据需要添加样式 */
+        }
+
+        /* 项目大图介绍栏样式 */
+        .project-main-image {
+            margin-bottom: 0; /* 确保与后续内容没有额外间距 */
+        }
+
+        /* 项目介绍大图栏样式 */
+        .project-intro-images {
+            display: flex;
+            flex-direction: column;
+            padding: 0; /* 去除内边距 */
+            margin: 0;  /* 去除外边距 */
+        }
+
+        .project-intro-images img {
+            margin-bottom: 0; /* 确保图片之间没有间距 */
+        }
+
+        /* 公司介绍栏样式 */
+        .company-intro {
+            margin-top: 0; /* 确保与前面的内容没有额外间距 */
+        }
+    </style>
+</head>
+<body>
+
+<!-- 菜单栏 -->
+<section id="menu">
+    <img id="img1" src="file:///F:/桌面/网页试做/图片/菜单栏/1.gif" alt="1">
+    <img id="img2" src="file:///F:/桌面/网页试做/图片/菜单栏/2.gif" alt="2"
+         onmouseover="handleMouseOver('img2')"
+         onmouseout="handleMouseOut('img2')"
+         onclick="handleClick('img2')">
+    <img id="img3" src="file:///F:/桌面/网页试做/图片/菜单栏/3.gif" alt="3">
+    <img id="img4" src="file:///F:/桌面/网页试做/图片/菜单栏/4.gif" alt="4"
+         onmouseover="handleMouseOver('img4')"
+         onmouseout="handleMouseOut('img4')"
+         onclick="handleClick('img4')">
+    <img id="img5" src="file:///F:/桌面/网页试做/图片/菜单栏/5.gif" alt="5">
+    <img id="img6" src="file:///F:/桌面/网页试做/图片/菜单栏/6.gif" alt="6"
+         onmouseover="handleMouseOver('img6')"
+         onmouseout="handleMouseOut('img6')"
+         onclick="handleClick('img6')">
+    <img id="img7" src="file:///F:/桌面/网页试做/图片/菜单栏/7.gif" alt="7">
+    <img id="img8" src="file:///F:/桌面/网页试做/图片/菜单栏/8.gif" alt="8"
+         onmouseover="handleMouseOver('img8')"
+         onmouseout="handleMouseOut('img8')"
+         onclick="handleClick('img8')">
+    <img id="img9" src="file:///F:/桌面/网页试做/图片/菜单栏/9.gif" alt="9">
+    <img id="img10" src="file:///F:/桌面/网页试做/图片/菜单栏/10.gif" alt="10"
+         onmouseover="handleMouseOver('img10')"
+         onmouseout="handleMouseOut('img10')"
+         onclick="handleClick('img10')">
+    <img id="img11" src="file:///F:/桌面/网页试做/图片/菜单栏/11.gif" alt="11">
+    <img id="img12" src="file:///F:/桌面/网页试做/图片/菜单栏/12.gif" alt="12">
+</section>
+
+<!-- 视频栏 -->
+<section class="section" id="video-section">
+    <img src="file:///F:/桌面/网页试做/图片/preoject/project1_02.gif" alt="Video Section">
+</section>
+
+<!-- 项目展示栏 -->
+<section class="section" id="project-display-section">
+    <img src="file:///F:/桌面/网页试做/图片/preoject/project1_03.gif" alt="Project Display Section">
+</section>
+
+<!-- 细节展示栏 -->
+<section class="section" id="details-display-section">
+    <img src="file:///F:/桌面/网页试做/图片/preoject/project1_04.gif" alt="Details Display Section">
+    <!-- 滚动效果器 -->
+    <div id="slider-container">
+        <div id="slider">
+            <!-- 图片将通过 JavaScript 动态添加 -->
+        </div>
+    </div>
+</section>
+
+<!-- 项目大图介绍栏 -->
+<section class="project-main-image">
+    <img src="file:///F:/桌面/网页试做/图片/preoject/project1_05.gif" alt="项目大图介绍" />
+</section>
+
+<!-- 项目介绍大图栏 -->
+<section class="project-intro-images">
+    <img src="file:///F:/桌面/网页试做/图片/preoject/project1_06.gif" alt="项目介绍图1" />
+    <img src="file:///F:/桌面/网页试做/图片/preoject/project1_07.gif" alt="项目介绍图2" />
+    <img src="file:///F:/桌面/网页试做/图片/preoject/project1_08.gif" alt="项目介绍图3" />
+</section>
+
+<!-- 公司介绍栏 -->
+<section class="company-intro">
+    <img src="file:///F:/桌面/网页试做/图片/preoject/project1_09.gif" alt="公司介绍图" />
+</section>
+
+<script>
+    // 保存原始图片路径和悬停图片路径的对象
+    var originalImages = {
+        "img2": "file:///F:/桌面/网页试做/图片/菜单栏/2.gif",
+        "img4": "file:///F:/桌面/网页试做/图片/菜单栏/4.gif",
+        "img6": "file:///F:/桌面/网页试做/图片/菜单栏/6.gif",
+        "img8": "file:///F:/桌面/网页试做/图片/菜单栏/8.gif",
+        "img10": "file:///F:/桌面/网页试做/图片/菜单栏/10.gif"
+    };
+
+    var hoverImages = {
+        "img2": "file:///F:/桌面/网页试做/图片/菜单栏/images/2.gif",
+        "img4": "file:///F:/桌面/网页试做/图片/菜单栏/images/4.gif",
+        "img6": "file:///F:/桌面/网页试做/图片/菜单栏/images/6.gif",
+        "img8": "file:///F:/桌面/网页试做/图片/菜单栏/images/8.gif",
+        "img10": "file:///F:/桌面/网页试做/图片/菜单栏/images/10.gif"
+    };
+
+    // 重置所有图片为原始状态
+    function resetImages() {
+        for (var imgId in originalImages) {
+            document.getElementById(imgId).src = originalImages[imgId];
+        }
+    }
+
+    // 鼠标移到图片上时替换图片
+    function handleMouseOver(imgId) {
+        resetImages(); // 每次鼠标移动时重置所有图片
+        document.getElementById(imgId).src = hoverImages[imgId]; // 更换悬停的图片为新图片
+    }
+
+    // 鼠标移出图片时恢复原始图片
+    function handleMouseOut(imgId) {
+        document.getElementById(imgId).src = originalImages[imgId];
+    }
+
+    // 点击图片时跳转到指定的HTML文件
+    function handleClick(imgId) {
+        var fileMap = {
+            "img2": "file:///F:/桌面/网页试做/Home.html",
+            "img4": "file:///F:/桌面/网页试做/Work.html",
+            "img6": "file:///F:/桌面/网页试做/Team.html",
+            "img8": "file:///F:/桌面/网页试做/About%20US.html",
+            "img10": "file:///F:/桌面/网页试做/Contact%20Us.html"
+        };
+        var fileName = fileMap[imgId];
+        setTimeout(function() {
+            window.location.href = fileName; // 延迟后跳转到指定的HTML文件
+        }, 500); // 延迟500毫秒后跳转，以确保图片替换效果可见
+    }
+
+    // 滚动效果器的 JavaScript
+    const slider = document.getElementById('slider');
+    const sliderContainer = document.getElementById('slider-container');
+
+    const imageFolder = 'file:///F:/桌面/网页试做/图片/preoject/项目细节展示/替换图片/';
+    const imageFiles = [
+        '1.png',
+        '2.png',
+        '3.png',
+        '4.png',
+        '5.png',
+        '6.png'
+    ];
+
+    const imagesToShow = 3; // 一次显示的图片数量
+    let currentIndex = 0;
+    let imageCount = imageFiles.length;
+    let sliderInitialized = false;
+
+    function loadImages() {
+        imageFiles.forEach(file => {
+            const img = document.createElement('img');
+            img.src = imageFolder + file;
+            img.alt = '滑动效果 ' + file;
+            img.addEventListener('click', changeImage);
+            slider.appendChild(img);
+        });
+
+        // 复制前几张图片以实现循环效果
+        for (let i = 0; i < imagesToShow - 1; i++) {
+            const img = document.createElement('img');
+            img.src = imageFolder + imageFiles[i];
+            img.alt = '滑动效果 ' + imageFiles[i];
+            img.addEventListener('click', changeImage);
+            slider.appendChild(img);
+        }
+
+        updateSliderSize();
+    }
+
+    function updateSliderSize() {
+        const imageWidth = sliderContainer.offsetWidth / imagesToShow;
+        const imageHeight = sliderContainer.offsetHeight;
+
+        slider.style.width = `${imageWidth * slider.children.length}px`;
+        slider.querySelectorAll('img').forEach(img => {
+            img.style.width = `${imageWidth}px`;
+            img.style.height = `${imageHeight}px`;
+        });
+
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const imageWidth = slider.querySelector('img').offsetWidth;
+        slider.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    }
+
+    function changeImage() {
+        currentIndex = (currentIndex + 1) % imageCount;
+
+        if (currentIndex === 0) {
+            slider.style.transition = 'none';
+            slider.style.transform = `translateX(0)`;
+
+            setTimeout(() => {
+                slider.style.transition = 'transform 0.5s ease-in-out';
+                updateSlider();
+            }, 50);
+        } else {
+            updateSlider();
+        }
+    }
+
+    function initSlider() {
+        loadImages();
+        updateSlider();
+        sliderContainer.addEventListener('click', () => {
+            if (!sliderInitialized) {
+                sliderInitialized = true;
+                setInterval(changeImage, 3000); // 每3秒更换图片
+            } else {
+                changeImage();
+            }
+        });
+    }
+
+    initSlider();
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面标题</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        #menu {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff; /* 根据需要设置背景颜色 */
+            padding: 10px 0;
+            box-sizing: border-box; /* 包含内边距和边框在内 */
+        }
+
+        #menu img {
+            height: 80px; /* 设置图片的高度 */
+            width: auto;  /* 等比缩放宽度 */
+            cursor: pointer; /* 鼠标移动到图片上时显示手形指针 */
+        }
+
+        .section {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            display: block; /* 去除图片下方的空白 */
+        }
+    </style>
+    <script>
+        // 保存原始图片路径和悬停图片路径的对象
+        var originalImages = {
+            "img2": "file:///F:/桌面/网页试做/图片/菜单栏/2.gif",
+            "img4": "file:///F:/桌面/网页试做/图片/菜单栏/4.gif",
+            "img6": "file:///F:/桌面/网页试做/图片/菜单栏/6.gif",
+            "img8": "file:///F:/桌面/网页试做/图片/菜单栏/8.gif",
+            "img10": "file:///F:/桌面/网页试做/图片/菜单栏/10.gif"
+        };
+
+        var hoverImages = {
+            "img2": "file:///F:/桌面/网页试做/图片/菜单栏/images/2.gif",
+            "img4": "file:///F:/桌面/网页试做/图片/菜单栏/images/4.gif",
+            "img6": "file:///F:/桌面/网页试做/图片/菜单栏/images/6.gif",
+            "img8": "file:///F:/桌面/网页试做/图片/菜单栏/images/8.gif",
+            "img10": "file:///F:/桌面/网页试做/图片/菜单栏/images/10.gif"
+        };
+
+        // 重置所有图片为原始状态
+        function resetImages() {
+            for (var imgId in originalImages) {
+                document.getElementById(imgId).src = originalImages[imgId];
+            }
+        }
+
+        // 鼠标移到图片上时替换图片
+        function handleMouseOver(imgId) {
+            resetImages(); // 每次鼠标移动时重置所有图片
+            document.getElementById(imgId).src = hoverImages[imgId]; // 更换悬停的图片为新图片
+        }
+
+        // 鼠标移出图片时恢复原始图片
+        function handleMouseOut(imgId) {
+            document.getElementById(imgId).src = originalImages[imgId];
+        }
+
+        // 点击图片时跳转到指定的HTML文件
+        function handleClick(imgId) {
+            var fileMap = {
+                "img2": "file:///F:/桌面/网页试做/Home.html",
+                "img4": "file:///F:/桌面/网页试做/Work.html",
+                "img6": "file:///F:/桌面/网页试做/Team.html",
+                "img8": "file:///F:/桌面/网页试做/About%20US.html",
+                "img10": "file:///F:/桌面/网页试做/Contact%20Us.html"
+            };
+            var fileName = fileMap[imgId];
+            setTimeout(function() {
+                window.location.href = fileName; // 延迟后跳转到指定的HTML文件
+            }, 500); // 延迟500毫秒后跳转，以确保图片替换效果可见
+        }
+    </script>
+</head>
+<body>
+
+<!-- 菜单栏 -->
+<section id="menu">
+    <img id="img1" src="file:///F:/桌面/网页试做/图片/菜单栏/1.gif" alt="1">
+    <img id="img2" src="file:///F:/桌面/网页试做/图片/菜单栏/2.gif" alt="2"
+         onmouseover="handleMouseOver('img2')"
+         onmouseout="handleMouseOut('img2')"
+         onclick="handleClick('img2')">
+    <img id="img3" src="file:///F:/桌面/网页试做/图片/菜单栏/3.gif" alt="3">
+    <img id="img4" src="file:///F:/桌面/网页试做/图片/菜单栏/4.gif" alt="4"
+         onmouseover="handleMouseOver('img4')"
+         onmouseout="handleMouseOut('img4')"
+         onclick="handleClick('img4')">
+    <img id="img5" src="file:///F:/桌面/网页试做/图片/菜单栏/5.gif" alt="5">
+    <img id="img6" src="file:///F:/桌面/网页试做/图片/菜单栏/6.gif" alt="6"
+         onmouseover="handleMouseOver('img6')"
+         onmouseout="handleMouseOut('img6')"
+         onclick="handleClick('img6')">
+    <img id="img7" src="file:///F:/桌面/网页试做/图片/菜单栏/7.gif" alt="7">
+    <img id="img8" src="file:///F:/桌面/网页试做/图片/菜单栏/8.gif" alt="8"
+         onmouseover="handleMouseOver('img8')"
+         onmouseout="handleMouseOut('img8')"
+         onclick="handleClick('img8')">
+    <img id="img9" src="file:///F:/桌面/网页试做/图片/菜单栏/9.gif" alt="9">
+    <img id="img10" src="file:///F:/桌面/网页试做/图片/菜单栏/10.gif" alt="10"
+         onmouseover="handleMouseOver('img10')"
+         onmouseout="handleMouseOut('img10')"
+         onclick="handleClick('img10')">
+    <img id="img11" src="file:///F:/桌面/网页试做/图片/菜单栏/11.gif" alt="11">
+    <img id="img12" src="file:///F:/桌面/网页试做/图片/菜单栏/12.gif" alt="12">
+</section>
+
+<!-- 页面内容 -->
+<section class="section">
+    <img src="file:///F:/桌面/网页试做/图片/Contact-Us/Contact-Us_02.gif" alt="团队">
+</section>
+
+<section class="section">
+    <img src="file:///F:/桌面/网页试做/图片/Contact-Us/Contact-Us_03.gif" alt="联系我们">
+</section>
+
+<section class="section">
+    <img src="file:///F:/桌面/网页试做/图片/Contact-Us/Contact-Us_04.gif" alt="公司介绍">
+</section>
+
+</body>
+</html>
